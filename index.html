@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>test-load-event</title>
+</head>
+<body>
+<h1>SIEMA XD</h1>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let $head = document.head;
+        let $stylesheet = document.createElement('link');
+
+        $stylesheet.type = 'text/css';
+        $stylesheet.rel = 'stylesheet';
+        $stylesheet.href = './styles.css';
+
+            $stylesheet.addEventListener('load', (evt) => {
+                console.log('addEventListener', evt);
+            });
+
+            $stylesheet.onload = (evt) => {
+                console.log('onload', evt);
+            }
+
+        $head.appendChild($stylesheet);
+    });
+</script>
+</body>
+</html>
